@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: weekly
+  # Consumers vendor this library as a git submodule, and Dependabot's Maven
+  # ecosystem skips submodule children, so nothing updates these dependencies
+  # from a consuming repository. They have to be updated here.
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: weekly
